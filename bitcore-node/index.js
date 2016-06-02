@@ -14,7 +14,7 @@ var InsightUI = function(options) {
   if (typeof options.routePrefix !== 'undefined') {
     this.routePrefix = options.routePrefix;
   } else {
-    this.routePrefix = 'insight';
+    this.routePrefix = '';
   }
 };
 
@@ -51,7 +51,7 @@ InsightUI.prototype.filterIndexHTML = function(data) {
     .replace(/apiPrefix = '\/api'/, "apiPrefix = '/" + this.apiPrefix + "'");
 
   if (this.routePrefix) {
-    transformed = transformed.replace(/<base href=\"\/\"/, '<base href="/' + this.routePrefix + '/"');
+    transformed = transformed.replace(/<base href=\"\/\"/, '<base href="/' + this.routePrefix + '"');
   }
 
   return transformed;
